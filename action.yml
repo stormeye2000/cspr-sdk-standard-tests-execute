@@ -1,0 +1,8 @@
+# action.yml
+name: 'Build NCTL Docker Image'
+description: 'Build a NCTL Docker Image with the repo branch as an arg'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+

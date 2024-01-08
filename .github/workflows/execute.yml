@@ -1,0 +1,15 @@
+name: Execute SDK Standard Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    name: Execute SDK Tests
+    steps:
+      - name: Build Docker Image
+        id: hello
+        uses: actions/cspr-sdk-standard-tests-execute@v2
+        with:
+          build-args: GITBRANCH=release-1.5.6
