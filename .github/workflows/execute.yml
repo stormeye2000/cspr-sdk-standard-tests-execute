@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  execute:
+  build:
     runs-on: ubuntu-latest
     name: Execute SDK Tests
     steps:
