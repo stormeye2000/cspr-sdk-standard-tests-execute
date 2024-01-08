@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Build Docker Image
         id: execute
-        uses: actions/cspr-sdk-standard-tests-execute@v2
+        uses: actions/action@v2
         with:
           build-args: GITBRANCH=release-1.5.6
