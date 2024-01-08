@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Execute SDK Tests
     steps:
-      - name: Build Docker Image
-        id: execute
-        uses: actions/action@v2
-        with:
-          build-args: GITBRANCH=release-1.5.6
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Build docker images
+        run: docker build --build-arg="GITBRANCH=release-1.5.6" -t stormeye2000/cspr-nctl .
+      - name: Run tests
+#        run: docker run -it -v $PWD:/srv -w/srv local make test
+        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 local
+
