@@ -12,4 +12,4 @@ rm -r casper-node-launcher/target/release/deps
 rm -r casper-node-launcher/target/release/.fingerprint
 rm -r casper-client-rs/target/release/build
 rm -r casper-client-rs/target/release/deps
-rm -r casper-client-rs/target/release/.fingerprint%
+rm -r casper-client-rs/target/release/.fingerprint
