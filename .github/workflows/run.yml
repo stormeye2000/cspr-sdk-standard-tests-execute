@@ -27,10 +27,10 @@ jobs:
     steps:
       - name: Check out NCTL Dockerfile
         uses: actions/checkout@v3
-#      - name: Build NCTL image
-#        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
-#      - name: Start NCTL
-#        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
+      - name: Build NCTL image
+        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
+      - name: Start NCTL
+        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
 
   workflow:
 
