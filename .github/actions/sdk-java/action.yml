@@ -1,6 +1,11 @@
 name: CSPR Java SDK Standard Tests
 
 on:
+  workflow_dispatch:
+    inputs:
+      java-repo:
+        required: true
+        type: string
   workflow_call:
     inputs:
       java-repo:
