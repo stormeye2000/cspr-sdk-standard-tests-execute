@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Execute SDK Tests
 
-#    steps:
-#      - name: Check out NCTL Dockerfile
-#        uses: actions/checkout@v3
+    steps:
+      - name: Check out NCTL Dockerfile
+        uses: actions/checkout@v3
 #      - name: Build NCTL image
 #        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
 #      - name: Start NCTL
