@@ -17,10 +17,6 @@ on:
         required: false
         default: 'main'
 
-
-env:
-  java_branch: ${{ github.event.inputs.java-repo }}
-
 jobs:
 
   build:
@@ -38,7 +34,7 @@ jobs:
 
   workflow:
 
-    if: ${{github.event.inputs.run-java-tests == true}}
+    if: ${{github.event.inputs.run-java-tests == 'true'}}
     needs: build
     name: Execute Java SDK Tests
     uses: ./.github/workflows/action.yml
