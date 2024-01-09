@@ -3,16 +3,16 @@ name: Execute SDK Standard Tests
 on:
   workflow_dispatch:
     inputs:
-      node_version:
+      node-version:
         description: 'Node build repo'
         required: true
         default: 'release-1.5.5'
-      run_java_tests:
+      run-java-tests:
         description: 'Run Java SDK Tests'
         required: true
         default: true
         type: boolean
-      java_repo:
+      java-repo:
         description: 'Java Repo'
         required: false
         default: 'main'
@@ -27,17 +27,16 @@ jobs:
       - name: Check NCTL Dockerfile
         uses: actions/checkout@v3
       - name: Build NCTL image
-        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node_version }}" -t stormeye2000/cspr-nctl .
+        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
       - name: Start NCTL
         run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
 
   run-java:
 
-        if: ${{github.event.inputs.run_java_tests}}
+    if: ${{github.event.inputs.run-java-tests}}
 #        needs: build
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v3
-            name: Run Java SDK Test
-          - uses: ./.github/action/run-java.yml
-
+    runs-on: ubuntu-latest
+    steps:
+        - uses: ./.github/workflows/run-java.yml
+          with:
+            java-repo: ${{ github.event.inputs.java-repo }}
