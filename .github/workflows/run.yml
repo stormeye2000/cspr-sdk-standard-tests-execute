@@ -12,14 +12,14 @@ on:
         required: true
         default: true
         type: boolean
-      java_repo:
+      java-repo:
         description: 'Java Repo'
         required: false
         default: 'main'
 
 
 env:
-  java_branch: ${{ github.event.inputs.java_repo }}
+  java_branch: ${{ github.event.inputs.java-repo }}
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Print Inputs
         run: |
-          echo "java-repo: ${{ github.event.inputs.java_repo}}"
+          echo "java-repo: ${{ github.event.inputs.java-repo}}"
 
       - uses: ./.github/actions/sdk-java
         with:
