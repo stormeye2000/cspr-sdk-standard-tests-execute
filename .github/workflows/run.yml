@@ -34,11 +34,10 @@ jobs:
   run-java:
 
         if: ${{github.event.inputs.run_java_tests}}
-        needs: build
+#        needs: build
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout Java SDK Test
-            uses: actions/checkout@v1
-          - name: Run Test
-            uses: ./.github/workflows/run-java
+          - uses: actions/checkout@v1
+            name: Run Java SDK Test
+          - uses: ./.github/workflows/run-java.yml
 
