@@ -1,19 +1,11 @@
 name: CSPR Java SDK Standard Tests
 
 on:
-  workflow_dispatch:
-    inputs:
-      java_repo:
-        description: 'Java Repo'
-        required: false
-        default: 'main'
-        type: string
   workflow_call:
     inputs:
       java-repo:
         description: 'Java Repo'
-        required: false
-        default: 'main'
+        required: true
         type: string
 
 jobs:
@@ -27,8 +19,7 @@ jobs:
       - uses: actions/labeler@v4
       - name: Print Inputs
         run: |
-          echo "java-repo: ${{ env.java_branch }}"
-#          echo "java-repo: ${{ inputs.java-repo }}"
+          echo "java-repo: ${{ inputs.java-repo }}"
 
       # Checkout the latest Casper Java SDK from their repo ready for a build
       - name: Checkout SDK source code
