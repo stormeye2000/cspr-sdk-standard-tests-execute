@@ -23,15 +23,17 @@ env:
 
 jobs:
 
-  xyz:
-    uses: stormeye2000/cspr-standard-tests-execute/.github/actions/sdk-java/action.yml
+  build:
+
+    name: Execute SDK Tests
+    uses: stormeye2000/cspr-standard-tests-execute/.github/actions/sdk-java/action.yml@dev
     with:
         java-repo: ${{ github.event.inputs.java-repo }}
 
 
-  build:
-    runs-on: ubuntu-latest
-    name: Execute SDK Tests
+#  build:
+#    runs-on: ubuntu-latest
+#    name: Execute SDK Tests
 
 
 
