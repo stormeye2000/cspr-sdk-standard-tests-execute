@@ -26,7 +26,7 @@ jobs:
   build:
 
     name: Execute SDK Tests
-    uses: stormeye2000/cspr-standard-tests-execute/.github/workflows/action.yml@dev
+    uses: ./.github/workflows/action.yml
     with:
         java-repo: ${{ github.event.inputs.java-repo }}
 
