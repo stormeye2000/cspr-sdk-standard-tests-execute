@@ -15,6 +15,10 @@ jobs:
 
     steps:
 
+      - name: Print Inputs
+        run: |
+          echo "java-repo: ${{ inputs.java-repo }}"
+
       # Checkout the latest Casper Java SDK from their repo ready for a build
       - name: Checkout SDK source code
         uses: actions/checkout@v2
