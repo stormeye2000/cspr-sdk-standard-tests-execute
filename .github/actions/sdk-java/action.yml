@@ -16,7 +16,7 @@ jobs:
 
     steps:
 
-      - uses: actions/labeler@v4
+      - uses: actions/checkout@v3
       - name: Print Inputs
         run: |
           echo "java-repo: ${{ inputs.java-repo }}"
