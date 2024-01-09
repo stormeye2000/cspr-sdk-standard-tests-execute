@@ -26,25 +26,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Execute SDK Tests
 
-    steps:
-
-      - name: Check out
-        uses: actions/checkout@v3
-      - name: Print Inputs
-        run: |
-          echo "java-repo: ${{ github.event.inputs.java-repo}}"
-
-      - uses: ./.github/actions/sdk-java
-        with:
-          java-repo: ${{ github.event.inputs.java-repo }}
+  workflow:
+      uses: ./.github/actions/sdk-java
+      with:
+        java-repo: ${{ github.event.inputs.java-repo }}
 
 
-      - name: Check NCTL Dockerfile
-        uses: actions/checkout@v3
-      - name: Build NCTL image
-        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
-      - name: Start NCTL
-        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
+#    steps:
+#      -
+#      - name: Check NCTL Dockerfile
+#        uses: actions/checkout@v3
+#      - name: Build NCTL image
+#        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
+#      - name: Start NCTL
+#        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
 
 #  run-java:
 #
