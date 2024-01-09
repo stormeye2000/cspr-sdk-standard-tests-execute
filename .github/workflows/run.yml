@@ -39,6 +39,7 @@ jobs:
   workflow:
 
     if: ${{github.event.inputs.run-java-tests == true}}
+    needs: build
     name: Execute Java SDK Tests
     uses: ./.github/workflows/action.yml
     with:
