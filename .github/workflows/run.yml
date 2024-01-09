@@ -11,6 +11,10 @@ on:
         description: 'Run Java SDK Tests'
         required: true
         default: 'true'
+        options:
+          - true
+          - false
+        type: choice
       java_repo:
         description: 'Java Repo'
         required: false
