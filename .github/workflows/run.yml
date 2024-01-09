@@ -37,6 +37,8 @@ jobs:
 #        needs: build
     runs-on: ubuntu-latest
     steps:
+        - name: Check out
+          uses: actions/checkout@v3
         - uses: ./.github/workflows/run-java.yml
           with:
             java-repo: ${{ github.event.inputs.java-repo }}
