@@ -11,6 +11,10 @@ on:
         description: 'Run Java SDK Tests'
         required: true
         default: 'true'
+      java_repo:
+        description: 'Java Repo'
+        required: false
+        default: 'main'
 
 jobs:
   build:
