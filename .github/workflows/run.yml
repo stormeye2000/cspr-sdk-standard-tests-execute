@@ -37,7 +37,7 @@ jobs:
 #        needs: build
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v1
+          - uses: actions/checkout@v3
             name: Run Java SDK Test
-          - uses: ./.github/workflows/run-java.yml
+          - uses: ./.github/action/run-java.yml
 
