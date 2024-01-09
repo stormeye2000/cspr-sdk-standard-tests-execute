@@ -21,11 +21,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Execute SDK Tests
+
     steps:
-      - name: Check out code
+
+      - name: Check NCTL Dockerfile
         uses: actions/checkout@v3
-      - name: Build docker images
+      - name: Build NCTL iamge
         run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node_version }}" -t stormeye2000/cspr-nctl .
-      - name: Run tests
+      - name: Start NCTL
         run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
+
+  run-java:
+
+        if: ${{github.event.inputs.run_java_tests}}
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Java SDK Test
+            uses: actions/checkout@v1
+          - name: Run Test
+            uses: ./.github/actions/run-java
 
