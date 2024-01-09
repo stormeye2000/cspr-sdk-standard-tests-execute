@@ -7,7 +7,10 @@ on:
         description: 'Node build repo'
         required: true
         default: 'release-1.5.5'
-
+      run_java_tests:
+        description: 'Run Java SDK Tests'
+        required: true
+        default: 'true'
 
 jobs:
   build:
