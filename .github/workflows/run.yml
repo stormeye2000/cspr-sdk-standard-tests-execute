@@ -24,8 +24,8 @@ jobs:
 
     steps:
 
-#      - name: Check out
-#        uses: actions/checkout@v3
+      - name: Check out
+        uses: actions/checkout@v3
       - name: Print Inputs
         run: |
           echo "java-repo: ${{ github.event.inputs.java-repo}}"
