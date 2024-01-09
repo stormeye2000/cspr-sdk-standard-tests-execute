@@ -1,6 +1,11 @@
 name: CSPR Java SDK Standard Tests
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      java-repo:
+        required: true
+        type: string
+
 jobs:
   build:
 
@@ -14,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: casper-network/casper-java-sdk
-          ref: ${{ github.event.inputs.java_repo }}
+          ref: ${{ github.event.inputs.java-repo }}
           path: casper-java-sdk
 
       # JDK environment to build the SDK jar
