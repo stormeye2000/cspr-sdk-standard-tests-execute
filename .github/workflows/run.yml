@@ -37,8 +37,6 @@ jobs:
 #        needs: build
     runs-on: ubuntu-latest
     steps:
-        - name: Check out
-          uses: actions/checkout@v3
         - uses: ./.github/actions/sdk-java
           with:
             java-repo: ${{ github.event.inputs.java-repo }}
