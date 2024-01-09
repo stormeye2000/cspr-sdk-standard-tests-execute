@@ -40,5 +40,5 @@ jobs:
           - name: Checkout Java SDK Test
             uses: actions/checkout@v1
           - name: Run Test
-            uses: ./.github/actions/run-java
+            uses: ./.github/workflows/run-java
 
