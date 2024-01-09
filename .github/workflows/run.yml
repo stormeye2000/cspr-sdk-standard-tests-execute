@@ -33,7 +33,8 @@ jobs:
 
   run-java:
 
-        if: ${{ always() && github.event.inputs.run_java_tests}}
+        if: ${{github.event.inputs.run_java_tests}}
+        needs: build
         runs-on: ubuntu-latest
         steps:
           - name: Checkout Java SDK Test
