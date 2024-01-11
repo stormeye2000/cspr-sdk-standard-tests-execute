@@ -28,11 +28,12 @@ jobs:
 
       - uses: tyriis/docker-image-tag-exists@v2.0.0
         with:
+          id: nctl-docker-image-exists
           registry: docker.io
           repository: stormeye2000/cspr-nctl
           tag: 'linux-1.5.5'
 
-        if:  ${{ tag == 'not found' }}
+        if:  ${{ steps.nctl-docker-image-exists.outputs.tag == 'not found' }}
       - name: Check out NCTL Dockerfile
         uses: actions/checkout@v3
       - name: Build NCTL image
