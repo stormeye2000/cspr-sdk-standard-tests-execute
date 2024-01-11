@@ -25,6 +25,14 @@ jobs:
     name: Execute SDK Tests
 
     steps:
+
+      - uses: tyriis/docker-image-tag-exists@v2.0.0
+        with:
+          registry: docker.io
+          repository: stormeye2000/cspr-nctl
+          tag: 'linux-1.5.5'
+
+        if:  ${{ tag == 'not found' }}
       - name: Check out NCTL Dockerfile
         uses: actions/checkout@v3
       - name: Build NCTL image
@@ -36,7 +44,7 @@ jobs:
 
     if: ${{github.event.inputs.run-java-tests == 'true'}}
     needs: build
-    name: Execute Java SDK Tests
+    name: Java SDK Tests
     uses: ./.github/workflows/action.yml
     with:
         java-repo: ${{ github.event.inputs.java-repo }}
