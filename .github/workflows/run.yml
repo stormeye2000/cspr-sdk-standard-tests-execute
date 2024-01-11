@@ -31,7 +31,7 @@ jobs:
         with:
           registry: docker.io
           repository: stormeye2000/cspr-nctl
-          tag: 'linux-1.5.5'
+          tag: 'linux-1.5.9'
 
 #      - name: Print Inputs
 #        run: |
