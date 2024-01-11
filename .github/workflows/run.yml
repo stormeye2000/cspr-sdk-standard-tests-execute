@@ -27,12 +27,11 @@ jobs:
     steps:
 
       - uses: tyriis/docker-image-tag-exists@v2.0.0
+        id: nctl-docker-image-exists
         with:
-          id: nctl-docker-image-exists
           registry: docker.io
           repository: stormeye2000/cspr-nctl
           tag: 'linux-1.5.5'
-
 
       - name: Print Inputs
         run: |
