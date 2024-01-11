@@ -31,19 +31,27 @@ jobs:
         with:
           registry: docker.io
           repository: stormeye2000/cspr-nctl
-          tag: 'linux-1.5.9'
+          tag: 'linux-1.5.5'
 
-      - name: Print Inputs
-        run: |
-          echo "tag: ${{ steps.nctl-docker-image-exists.outputs.tag }}"          
+#      - name: Print Inputs
+#        run: |
+#          echo "tag: ${{ steps.nctl-docker-image-exists.outputs.tag }}"
 
+      - name: NCTL Docker Image Exists
+        if: ${{ steps.nctl-docker-image-exists.outputs.tag == 'found' }}
+        run: echo "Docker Image Found"
+
+      - name: NCTL Docker Image Doesn't Exist
         if: ${{ steps.nctl-docker-image-exists.outputs.tag != 'found' }}
-      - name: Check out NCTL Dockerfile
-        uses: actions/checkout@v3
-      - name: Build NCTL image
-        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
-      - name: Start NCTL
-        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
+        run: echo "Docker Image Not Found"
+
+
+#      - name: Check out NCTL Dockerfile
+#        uses: actions/checkout@v3
+#      - name: Build NCTL image
+#        run: docker build --build-arg="GITBRANCH=${{ github.event.inputs.node-version }}" -t stormeye2000/cspr-nctl .
+#      - name: Start NCTL
+#        run: docker run --rm -it --name cspr-nctl -d -p 25101:25101 -p 11101:11101 -p 14101:14101 -p 18101:18101 stormeye2000/cspr-nctl
 
   workflow:
 
