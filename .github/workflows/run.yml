@@ -31,13 +31,13 @@ jobs:
         with:
           registry: docker.io
           repository: stormeye2000/cspr-nctl
-          tag: 'linux-1.5.5'
+          tag: 'linux-1.5.9'
 
       - name: Print Inputs
         run: |
           echo "tag: ${{ steps.nctl-docker-image-exists.outputs.tag }}"          
 
-        if: ${{ steps.nctl-docker-image-exists.outputs.tag != 'container image tag found' }}
+        if: ${{ steps.nctl-docker-image-exists.outputs.tag != 'found' }}
       - name: Check out NCTL Dockerfile
         uses: actions/checkout@v3
       - name: Build NCTL image
