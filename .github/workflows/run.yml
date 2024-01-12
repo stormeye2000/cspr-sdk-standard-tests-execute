@@ -31,7 +31,7 @@ jobs:
         with:
           registry: docker.io
           repository: stormeye2000/cspr-nctl
-          tag: ${{ github.event.inputs.node-version }}
+          tag: '${{ github.event.inputs.node-version }}'
 
 #      - name: Print Inputs
 #        run: |
